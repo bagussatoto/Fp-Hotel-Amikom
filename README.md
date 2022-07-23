@@ -30,13 +30,7 @@
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="javascript" width="1000"/> 
 <!-- End -->
 
-![Folder Final Project](https://drive.google.com/file/d/1z9PjYN1jxABXvrphj33xXKDYSdxPTzLw/view?usp=sharing)
 
-
-
-<!-- Garis Lurus -->
-<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="javascript" width="1000"/> 
-<!-- End -->
 
 ## Kritik Dan Saran 
 Anda bisa kirim Email :
