@@ -30,6 +30,13 @@
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="javascript" width="1000"/> 
 <!-- End -->
 
+> ## Video Penjelasan Presentasi
+
+
+
+https://user-images.githubusercontent.com/87259393/181392520-0a672887-afbc-4477-8477-a35a7e38e390.mp4
+
+
 
 
 ## Kritik Dan Saran 
