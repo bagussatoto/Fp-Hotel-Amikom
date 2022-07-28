@@ -1,92 +1,105 @@
-#include <iostream>
-#include <windows.h>
-#include <ctime>
-#define MAX 100
-using namespace std;
+/*
 
-int i;
-time_t now = time(0);
-char* dt = ctime(&now);
-struct kamar {
-    int kamar;
-    int ranjang;
-    string fixkam;
-    int harga_kamar;
-}kmr; 
+Nama Anggota Kelompok  
 
-struct form {
-    int no_kamar[MAX];
-    int lama;
-    double diskon;
-}frm;
+Bagus Budi Satoto	|	21.11.4076 
+ALDYANSA		    |	21.11.4055 
+Fajar Rizki	Y   	|	21.11.4095 
+Arya Manunggal  	|	21.11.4058 
+Achmad Fadillah P	|	21.11.4093 
 
-struct data{
-    int total, bayar, lunas;
-    int um;
-    int kurang[MAX];
-    string input, nama;
-}psn;
+*/
 
-struct tampung{
-  string customer[MAX], alamat, lp;
-  int id_customer[MAX];
-  char hp[20];
-} biodata;
+#include <iostream>               // header file untuk input/output
+#include <windows.h>              // header file untuk windows
+#include <ctime>                // header file untuk waktu
+#define MAX 100                 // maksimal array
+using namespace std;            // namespace STD_OUTPUT_HANDLER
 
-struct queue {
-    int awal, akhir, id, utang, lunas;
-    string customer;
-    string daftar [MAX]={"Standart","Deluxe","Premium","Suite","Presidensial"};
-    string DafSort [MAX]={"Standart\t       Double Bed","Standart\t       Single Bed",
+int i;                      // variabel untuk looping
+time_t now = time(0);           // variabel untuk waktu
+char* dt = ctime(&now);         // variabel untuk waktu
+struct kamar {              // struktur untuk kamar
+    int kamar;              // variabel untuk nomor kamar
+    int ranjang;            // variabel untuk nomor ranjang
+    string fixkam;          // variabel untuk keterangan kamar
+    int harga_kamar;            // variabel untuk harga kamar
+}kmr;                       // nama variabel untuk struktur kamar
+
+struct form {               // struktur untuk form
+    int no_kamar[MAX];      // variabel untuk nomor kamar
+    int lama;           // variabel untuk lama
+    double diskon;      // variabel untuk diskon
+}frm;               // nama variabel untuk struktur Form
+
+struct data{                        // struktur untuk data
+    int total, bayar, lunas;        // variabel untuk total, bayar, lunas
+    int um;                         // variabel untuk uang muka
+    int kurang[MAX];            // variabel untuk kurang
+    string input, nama;         // variabel untuk input, nama
+}psn;                       // nama variabel untuk struktur data
+
+struct tampung{                             // struktur untuk tampung 
+  string customer[MAX], alamat, lp;         // variabel untuk customer, alamat, lp
+  int id_customer[MAX];                     // variabel untuk id customer
+  char hp[20];                          // variabel untuk hp
+} biodata;                          // nama variabel untuk struktur tampung
+
+struct queue {                                                                                      // struktur untuk queue
+    int awal, akhir, id, utang, lunas;                                                              // variabel untuk awal, akhir, id, utang, lunas
+    string customer;                                                                                    // variabel untuk customer
+    string daftar [MAX]={"Standart","Deluxe","Premium","Suite","Presidensial"};                     // variabel untuk daftar
+    string DafSort [MAX]={"Standart\t       Double Bed","Standart\t       Single Bed",              
                        "Deluxe\t\t       Double Bed","Deluxe\t\t       Single Bed",
                        "Premium\t\t       Single Bed", "Premium\t\t       Double Bed",
                        "Suite\t\t       Single Bed", "Suite\t\t       Double Bed",
                        "Presidensial\t       Double Bed", "Presidensial\t       Single Bed"};
-    string harga [MAX]={"Rp.   900.000 / Hari","Rp.   800.000 / Hari",
-                        "Rp.   450.000 / Hari", "Rp.   400.000 / Hari",
+    string harga [MAX]={"Rp.   900.000 / Hari","Rp.   800.000 / Hari",                              // variabel untuk harga kamar
+                        "Rp.   450.000 / Hari", "Rp.   400.000 / Hari", 
                         "Rp. 3.000.000 / Hari","Rp. 2.400.000 / Hari",
                         "Rp.   250.000 / Hari", "Rp.   200.000 / Hari",
                         "Rp. 1.800.000 / Hari","Rp. 1.500.000 / Hari",};
-    int no_kmr;
-}antri;
+    int no_kmr;                                                                                     // variabel untuk nomor kamar
+}antri;                                                                                     // nama variabel untuk struktur queue   
 
-struct hapus {
-    int pilihan;
-    string data;
-}hps;
+struct hapus {                      // struktur untuk hapus
+    int pilihan;                    // variabel untuk pilihan
+    string data;                    // variabel untuk data
+}hps;                               // nama variabel untuk struktur hapus
 
 // queue
 
-void setcolor(unsigned short color) {
-    HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(hCon,color);}
+void setcolor(unsigned short color) {                   // fungsi untuk set color
+    HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);       // variabel untuk handle
+    SetConsoleTextAttribute(hCon,color);}               // variabel untuk set color
 
-void init(void) {
-    antri.awal=-1;
-    antri.akhir=-1;
+void init(void) {                        // fungsi untuk inisialisasi
+    antri.awal=-1;                      // inisialisasi awal
+    antri.akhir=-1;                     // inisialisasi akhir
 }
 
-bool penuh(){
-    if(antri.akhir==MAX-1){
-        return true;
+bool penuh(){                           // fungsi untuk penuh
+    if(antri.akhir==MAX-1){             // jika akhir sama dengan maksimal array
+        return true;                    
+    } else {                            // jika tidak tersedia!
+        return false;                   // maka false
+    }                                   
+}
+
+bool kosong() {                         // fungsi untuk kosong
+    if(antri.akhir==MAX-1) {                // jika akhir sama dengan maksimal array
+        return true;                
     } else {
         return false;
     }
 }
 
-bool kosong() {
-    if(antri.akhir==MAX-1) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
+// tampilkan data pesanan
 void tampilData() {
-    setcolor(14);cout<<"\n\n\t\t     Data Pesanan ";setcolor(7);
+    setcolor(14);cout<<"\n\n\t\t     Data Pesanan ";setcolor(7);                                    
     cout<<"\n ======================================================================\n\n";
     if(!kosong()) {
-        for(i=antri.awal; i<antri.akhir; i++) {
+        for(i=antri.awal; i<antri.akhir; i++) {                                                         
             cout<<"  ["<< i+1 <<"] "<<" ID "<<biodata.id_customer[i]<<" atas nama "<<biodata.customer[i]<<" di kamar no "<<frm.no_kamar[i]<<".\n";
         }
     }else{
@@ -95,10 +108,11 @@ void tampilData() {
 	}
 }
 
-void dequeue(){
+// fungsi untuk dequeue
+void dequeue(){                 
     if(!kosong()){
-    	setcolor(14);cout<<"\n\n\t\t     Hapus Reservasi ";setcolor(7);
-    	cout<<"\n ======================================================================\n\n";
+    	setcolor(14);cout<<"\n\n\t\t     Hapus Reservasi ";setcolor(7);                             //fungsi hapus 
+    	cout<<"\n ======================================================================\n\n";         
         cout<<"  Pemesan atas nama "<<biodata.customer[antri.awal]<<" telah dihapus.\n\n";
         for(i=antri.awal; i<antri.akhir; i++){
             biodata.id_customer[i]=biodata.id_customer[i+1];
@@ -115,7 +129,7 @@ void dequeue(){
 
 // selection sort 
 
-void sort(){
+void sort(){                                                // fungsi sort
 int i,t,min;
 string temp,temp2;
 for(i=0;i<10;i++){
@@ -131,7 +145,7 @@ for(i=0;i<10;i++){
     }
 }
 
-void sorting(){
+void sorting(){                                         // fungsi sorting
 int i,t,min;
 string temp,temp2;
 for(i=0;i<5;i++){
@@ -150,12 +164,12 @@ for(i=0;i<5;i++){
 
 // sequential searching 
 
-void searching(){
+void searching(){               // fungsi searching
 	int i , posisi;
 	string search;
 	
 	system("cls");
-    setcolor(14);cout<<"\n\n\t     Cari Reservasi";setcolor(7);
+    setcolor(14);cout<<"\n\n\t     Cari Reservasi";setcolor(7);                             
     cout<<"\n ======================================================================";
     cout <<"\n\n   Masukan nama yang ingin dicari = ";cin >> search;
 	
@@ -177,9 +191,9 @@ void searching(){
 
 // menu
 
-void tipeKamar(){
+void tipeKamar(){                                                                           //fungsi menu tipe kamar
 tipe:               
-    setcolor(14);cout<<"\n\n\t       Silakan Pilih Tipe Bed Yang Anda Inginkan";setcolor(7);
+    setcolor(14);cout<<"\n\n\t       Silakan Pilih Tipe Bed Yang Anda Inginkan";setcolor(7);       
     cout<<"\n ======================================================================";
     cout<<"\n\t\t| 1 | Single";
     cout<<"\n\t\t| 2 | Double";
@@ -407,7 +421,7 @@ int main() {
     string pilih;
     system("cls");
 	setcolor(14);cout<<"\n\n\n\t     -! FINAL PROJECT STRUKTUR DATA !-\n\n";
-	//cout<<"\n\t\t      -! Anggota !- \n\n\t\t 1. Bagus  |	21.11.4076, 2. ALDYANSA		|	21.11.4055, 3. Fajar Rizki Y		|	21.11.4095, 4. Arya	Manunggal		|	21.11.4058, 5. Achmad Fadillah P	|	21.11.4093 ;setcolor(7);
+	cout<<"\n\t\t      -! Anggota !- \n\n\t\t";
 	cout <<"\n\t\t		-!  Bagus Budi Satoto	|	21.11.4076 \n\n\t\t\t";setcolor(7);
 	cout <<"\n\t\t		-!  ALDYANSA		|	21.11.4055 \n\n\t\t\t";setcolor(6);
 	cout <<"\n\t\t		-!  Fajar Rizki	Y	|	21.11.4095 \n\n\t\t\t";setcolor(5);
