@@ -36,7 +36,7 @@ https://user-images.githubusercontent.com/87259393/181392520-0a672887-afbc-4477-
 
 ## Laporan Final Project 
 
-[Laporan FInal Project Stuktur Data.pdf](https://github.com/bagussatoto/Fp-Hotel-Amikom/files/9225988/21.11.4076_BAGUS.BUDI.SATOTO_UAS.STUKTUR.DATA.pdf)
+[LAPORAN FINAL PROJECT STUKTUR DATA **HOTEL AMIKOM JOGJA**](https://github.com/bagussatoto/Fp-Hotel-Amikom/files/9225992/laporan.hotel.amikom.pdf)
 
 
 
