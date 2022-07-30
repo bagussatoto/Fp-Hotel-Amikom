@@ -3,7 +3,7 @@
 Nama Anggota Kelompok  
 
 Bagus Budi Satoto	|	21.11.4076 
-ALDYANSA		    |	21.11.4055 
+ALDYANSA	        |	21.11.4055 
 Fajar Rizki	Y   	|	21.11.4095 
 Arya Manunggal  	|	21.11.4058 
 Achmad Fadillah P	|	21.11.4093 
